@@ -1,0 +1,507 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@import url("fonts.css");
+
+@import url("reset.css");
+
+@import url("button.css");
+
+@media (min-width: 1920px) {
+    .wrapper {
+        background-size: 1920px 640px;
+    }
+}
+/* * {
+    box-sizing: border-box;
+    outline: 1px solid red;
+} */
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    font-family: "Gilroy", sans-serif;
+    line-height: 1.4;
+    background-color: hsl(240, 44%, 32%);
+    color: #FFF;
+    margin: 0;
+    min-height: 100vh;
+}
+
+[class*='__container'] {
+    width: 100%;
+    max-width: 1259px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #0936d7;
+    border: 1px solid grey;
+    box-shadow: 0 0 3px orangered;
+    color: #FFF;
+}
+
+/* ============================================= */
+/* =============== Navigation  ================= */
+/* ============================================= */
+
+
+.nav__item {
+    display: inline-block;
+    font-size: 0;
+}
+
+.nav__item:hover .nav__link::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__item:hover .subnav {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__item:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav__link,
+.subnav__link {
+    position: relative;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.nav__link {
+    padding: 10px 10px;
+}
+
+.nav__link::after, 
+.subnav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 80%;
+    height: 3px;
+    background-color: rgb(213, 13, 33);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.subnav {
+    position: absolute;
+    top: 100%;
+    padding-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.subnav__item {
+    background-color: #0936d7;
+}
+
+.subnav__link::after {
+    bottom: 4px;
+}
+
+.subnav__item:hover .subnav__link::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.subnav__link {
+    padding: 10px;
+    width: 100%;
+}
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+
+/* ==============================================
+===================== Animation car =============
+================================================ */
+
+.main {
+    background: url(../img/vector_01.jpg) center no-repeat;
+    content: "";
+    padding-top: 350px;
+}
+
+.car {
+    position: relative;
+    padding: 350px;
+    transform: translate(650px, 0);
+    animation: car-moving 6s 0s infinite linear;
+}
+
+.car:hover {
+    animation-play-state: paused;
+    
+}
+
+.car__wheel:hover {
+    animation-play-state: paused;
+}
+
+@keyframes car-moving {
+    0% {
+        transform: translate(650px, 0);
+    }
+
+    100% {
+        transform: translate(-650px, 0);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.car__section {
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+    font-size: 0;
+    z-index: 2;
+}
+
+/* Дах */
+.car__roof {
+    width: 325px;
+    height: 10px;
+    background: linear-gradient(to bottom, hsl(35, 95%, 47%), hsl(37, 96%, 40%));
+    margin-left: 247px;
+    border-radius: 30px 30px 0 0;
+}
+
+/* Вікна */
+.car__windows {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.car__front-glass,
+.car__window,
+.car__rear-glass {
+    display: inline-block;
+    height: 65px;
+    vertical-align: bottom;
+    background: linear-gradient(to bottom, #a9c3d3, #6e8a99);
+    border: 3px solid #c63;
+    box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2);
+}
+
+.car__front-glass {
+    width: 85px; 
+    transform: skew(-20deg) translateX(-5px); 
+    transform-origin: left bottom;
+    border-radius: 5px 0 0 0;
+    margin-right: -5px; 
+}
+
+.car__front-glass::after {
+    content: "";
+    position: absolute;
+    inset: 2px 2px 55% 2px;
+    background: linear-gradient(to bottom, rgba(234, 35, 4, 0.25), transparent);
+    pointer-events: none;
+}
+
+.car__window {
+    width: 130px;
+}
+
+.car__rear-glass {
+    border-radius: 0 5px 0 0;
+}
+
+/* Передня частина */
+.car__front {
+    width: 100px;
+    height: 85px;
+    background: #c63;
+    border: 3px solid black;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    left: 90px;
+    top: 7px;
+    border-top-left-radius: 100px 16px;
+    border-top-right-radius: 100px 16px;
+    z-index: 5;
+}
+
+.car__wing {
+    width: 120px;
+    height: 94px;
+    background: #c63;
+    border: 3px solid black;
+    display: inline-block;
+    vertical-align: top;
+    border-top-left-radius: 100px 16px;
+    position: absolute;
+    left: 188px;
+    bottom: -2px;
+    z-index: 5;
+}
+
+.car__bonnet {
+    width: 123px;
+    height: 94px;
+    background: #c63;
+    border: 3px solid black;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    left: 188px;
+    bottom: 0px;
+    border-top-left-radius: 100px 16px;
+    transform: translate(-89px);
+}
+
+.car__grille {
+    width: 60px;
+    height: 15px;
+    background: #222;
+    margin: 5px auto;
+    border-radius: 3px;
+}
+
+.car__headlights {
+    text-align: center;
+}
+
+.car__light {
+    width: 40px;
+    height: 20px;
+    border-radius: 7px;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px 3px;
+    background: linear-gradient(to bottom, hsl(57, 62%, 80%), hsl(64, 74%, 78%));
+    box-shadow: 
+        0 0 30px 10px rgba(0, 200, 255, 0.5),
+        0 0 80px 30px rgba(0, 200, 255, 0.3),
+        0 0 150px 60px rgba(0, 150, 255, 0.2);
+    position: relative;
+}
+
+.car__light::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0, 200, 255, 0.4) 0%, rgba(0, 150, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.car__fog-lights {
+    text-align: center;
+    margin-top: 5px;
+}
+.car__fog {
+    width: 30px;
+    height: 15px;
+    background: yellow;
+    border-radius: 20%;
+    box-shadow: 0 0 10px 4px rgba(255, 255, 150, 0.7);
+    border: 1px solid black;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* Двері */
+.car__door {
+    display: inline-block;
+    height: 90px;
+    width: 150px;
+    background: linear-gradient(to bottom, hsl(13, 70%, 50%), hsl(13, 70%, 40%));
+    position: relative;
+    left: 160px;
+    vertical-align: top;
+    border-left: 2px solid #201d1d;
+    margin: 0 15px;
+    transform: translateX(10px);
+}
+
+.car__door--rear {
+    width: 132px;
+    left: 130px;
+}
+.car__door:first-of-type {
+    border-left: none;
+}
+.car__handle {
+    width: 30px;
+    height: 6px;
+    background: #0b0b0b;
+    border-radius: 3px;
+    position: absolute;
+    top: 35%;
+    left: 68%;
+}
+
+/* Задня частина */
+.rear {
+    display: inline-block;
+    width: 170px;
+    height: 90px;
+    background: #c63;
+    border-left: 3px solid black;
+    border-top-right-radius: 18px 36px;
+    position: relative;
+    left: 125px;
+    z-index: 5;
+}
+.rear__car-light {
+    width: 15px;
+    height: 40px;
+    background: red;
+    border: 2px solid black;
+    border-radius: 20%;
+    box-shadow: 0 0 15px 4px rgba(255,0,0,0.6);
+    position: absolute;
+    right: -10px;
+    top: 20px;
+}
+
+/* Арки */
+.car__arc {
+    width: 100px;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 50px 50px 0 0;
+    position: absolute; 
+    bottom: 0;
+    background: #c63;
+    z-index: 5;
+}
+.car__arc--front {
+    left: 198px;
+}
+.car__arc--rear {
+    right: 80px;
+}
+
+/* Колеса */
+.car__wheels {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 100%;
+}
+.car__wheel {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(hsl(358deg 58% 39%), hsl(359deg 68% 49%));
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        hsl(52, 99%, 49%) 0 14deg,
+        hsl(212deg 9% 50%) 14deg 17deg
+    )
+    content-box,
+    hsl(0deg 0% 20%);
+    border: 20px solid rgb(0, 0, 0);
+    position: absolute;
+
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: rotate;
+}
+.car__wheel--front {
+    position: absolute;
+    top: -60px;
+    left: 202px;
+    z-index: 5;
+}
+
+.car__wheel--front-back {
+    bottom: -15px;
+    left: 155px;
+    opacity: 1;
+    z-index: 4;
+}
+
+.car__wheel--rear {
+    position: absolute;
+    top: -60px;
+    right: 85px;
+    z-index: 5;
+}
+
+.car__wheel--rear-back {
+    bottom: -15px;
+    right: 120px;
+    opacity: 1;
+    z-index: 4;
+}
+
+/* .road__container {
+    width: 1259px;
+    height: 120px;
+    background: #555;
+    position: relative;
+    margin-top: -40px;
+    z-index: 1;
+}
+
+.road__line {
+    width: 100%;
+    height: 6px;
+    background: repeating-linear-gradient(
+        to right,
+        #fff 0 40px,
+        transparent 40px 80px
+    );
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+
+/* ============================================= */
+/* =============== FOOTER ================= */
+/* ============================================= */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    background-color: #0936d7;
+    border: 1px solid rgb(243, 191, 4);
+    box-shadow: 0 0 3px orangered; 
+}
+
+.footer__title {
+    text-align: left;
+    padding: 10px;
+    font-family: "Circular Std", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #fff;
+}
